@@ -86,11 +86,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleManage.cpp" />
+    <ClCompile Include="Pa_Boom.cpp" />
     <ClCompile Include="SDL_Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleManage.h" />
+    <ClInclude Include="Pa_Boom.h" />
     <ClInclude Include="SDL_Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

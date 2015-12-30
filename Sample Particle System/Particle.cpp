@@ -10,8 +10,6 @@ Particle::~Particle()
 {
 }
 
-int Particle::addseed = 0;
-
 void Particle::setRandomMax(int min, int max)
 {
 	random_device rd;

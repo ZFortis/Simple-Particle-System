@@ -3,12 +3,9 @@
 #include"SDL_Sprite.h"
 #include"Particle.h"
 #include"ParticleManage.h"
-#include<iostream>
-#include<sstream>
-#include<string>
+#include"Pa_Boom.h"
 #include<vector>
-#include<time.h>
-#include<cmath>
+
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HIGHT = 480;
@@ -21,41 +18,26 @@ int main(int argc, char* args[])
 	SDL_Event e;
 	ParticleManage pM;
 	Particle p;
+	Pa_Boom boom;
 	bool quite = false;
 	int mouseX=0, mouseY=0;
 	p.loadImage(renderer, "./res/particle_r.png");
 	p.setSprite(1, 10, 10);
-
+	boom.setMaxCount(MAX_COUNT);
+	boom.setBoomDistance(50, 200);
 	while (!quite)
 	{
 		while (SDL_PollEvent(&e))
 		{
 			if (e.type == SDL_QUIT)
 				quite = true;
-			if (e.type == SDL_MOUSEBUTTONDOWN)
-			{
-				if (e.button.button == SDL_BUTTON_LEFT)
-				{
-					for (int i = 0; i < MAX_COUNT; i++)
-					{
-						SDL_GetMouseState(&mouseX, &mouseY);
-						p.setRandomMax(50,200);
-						p.setRandomDirection();
-						p.setSpritePosition(mouseX, mouseY);
-						p.setLive();
-						pM.addParticle(p);
-					}
-				}
-			}
+			if (boom.mouseControl(e))
+				boom.loadParticle(p);
 		}
 		if (quite)
 			continue;
 
-		pM.moveEveryParticle();
-		SDL_RenderClear(renderer);
-		pM.drawEveryParticle(renderer);
-		SDL_RenderPresent(renderer);
-		pM.deleteParticle();
+		boom.showBoom(renderer);
 	}
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
