@@ -21,5 +21,6 @@ public:
 private:
 	//Á£×ÓÈÝÆ÷
 	vector<Particle> particleVec;
+	
 };
 

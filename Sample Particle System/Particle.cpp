@@ -23,13 +23,9 @@ void Particle::setRandomDirection()
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<> dis(0, 8);
-	vx = dis(gen);
-	vy = dis(gen);
-	if (vx == 0 && vy == 0)
-	{
-		vx++;
-		vy++;
-	}
+	vx = dis(gen) + 1;
+	vy = dis(gen) + 1;
+
 	uniform_int_distribution<> dis2(0, 3);
 	int flag = dis2(gen);
 	switch (flag)

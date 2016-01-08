@@ -9,7 +9,7 @@ class Particle :
 public:
 	Particle();
 	~Particle();
-
+	
 public:
 	//…Ë÷√Œª÷√∑∂Œß
 	void setRandomMax(int min, int max);

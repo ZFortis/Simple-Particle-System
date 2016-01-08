@@ -9,7 +9,7 @@
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HIGHT = 480;
-const int MAX_COUNT = 50;
+const int MAX_COUNT = 500;
 int main(int argc, char* args[])
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -22,9 +22,9 @@ int main(int argc, char* args[])
 	bool quite = false;
 	int mouseX=0, mouseY=0;
 	p.loadImage(renderer, "./res/particle_r.png");
-	p.setSprite(1, 10, 10);
+	p.setSprite(1,10, 10);
 	boom.setMaxCount(MAX_COUNT);
-	boom.setBoomDistance(50, 200);
+	boom.setBoomDistance(10, 2000);
 	while (!quite)
 	{
 		while (SDL_PollEvent(&e))
